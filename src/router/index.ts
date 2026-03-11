@@ -14,6 +14,11 @@ export const router = createRouter({
       name: "docs",
       component: () => import("@/views/DocsView.vue"),
     },
+    {
+      path: "/changelog",
+      name: "changelog",
+      component: () => import("@/views/ChangelogView.vue"),
+    },
   ],
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;

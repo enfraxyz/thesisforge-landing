@@ -153,7 +153,7 @@ const GITHUB_URL = "https://github.com/thesisforge";
               <router-link to="/docs" class="transition-colors hover:text-foreground">Documentation</router-link>
             </li>
             <li>
-              <a :href="`${GITHUB_URL}/releases`" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-foreground">Changelog</a>
+              <router-link to="/changelog" class="transition-colors hover:text-foreground">Changelog</router-link>
             </li>
           </ul>
         </div>

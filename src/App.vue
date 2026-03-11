@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import { Menu, X, ArrowRight } from "lucide-vue-next";
 import Button from "@/components/ui/Button.vue";
+import CookieBanner from "@/components/CookieBanner.vue";
 
 const mobileMenuOpen = ref(false);
 
@@ -185,5 +186,8 @@ const APP_URL = "https://app.thesisforge.ai";
         &copy; {{ new Date().getFullYear() }} ThesisForge. All rights reserved.
       </div>
     </footer>
+
+    <!-- Cookie Consent -->
+    <CookieBanner />
   </div>
 </template>

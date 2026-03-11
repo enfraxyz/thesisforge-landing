@@ -1,8 +1,16 @@
 <script setup lang="ts">
 import { ArrowRight } from "lucide-vue-next";
 import Button from "@/components/ui/Button.vue";
+import { useSeo } from "@/composables/useSeo";
 
 const APP_URL = "https://app.thesisforge.io";
+
+useSeo({
+  title: "Changelog",
+  description:
+    "New features, improvements, and fixes shipped to ThesisForge. Track every release and see what's new.",
+  url: "https://thesisforge.io/changelog",
+});
 
 const entries = [
   {

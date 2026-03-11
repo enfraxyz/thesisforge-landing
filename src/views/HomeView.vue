@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
+import { useSeo } from "@/composables/useSeo";
 import {
   ArrowRight,
   Zap,
@@ -14,6 +15,13 @@ import Button from "@/components/ui/Button.vue";
 import Card from "@/components/ui/Card.vue";
 
 const APP_URL = "https://app.thesisforge.io";
+
+useSeo({
+  title: "Know What to Build Next",
+  description:
+    "Your customers are telling you what to build — in calls, tickets, and usage data. ThesisForge finds the patterns you're missing and turns them into specs.",
+  url: "https://thesisforge.io",
+});
 
 /* ─── Data ─── */
 

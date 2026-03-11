@@ -211,14 +211,17 @@ onUnmounted(() => {
         you're missing and turns them into specs you can ship.
       </p>
 
-      <div class="mt-8 flex items-center justify-center gap-4 hero-enter hero-enter-4">
-        <Button as="a" :href="`${APP_URL}/setup`" size="lg" class="install-glow">
-          Start Free
-          <ArrowRight class="h-4 w-4" aria-hidden="true" />
-        </Button>
-        <Button as="a" href="#how-it-works" variant="outline" size="lg" class="text-muted-foreground hover:text-foreground">
-          See How It Works
-        </Button>
+      <div class="mt-8 flex flex-col items-center gap-3 hero-enter hero-enter-4">
+        <div class="flex items-center gap-4">
+          <Button as="a" :href="`${APP_URL}/setup`" size="lg" class="install-glow">
+            Start Free Trial
+            <ArrowRight class="h-4 w-4" aria-hidden="true" />
+          </Button>
+          <Button as="a" href="#how-it-works" variant="outline" size="lg" class="text-muted-foreground hover:text-foreground">
+            See How It Works
+          </Button>
+        </div>
+        <p class="text-xs text-muted-foreground/70">14-day free trial · No credit card required</p>
       </div>
 
       <!-- App screenshot — themes view -->
@@ -465,6 +468,7 @@ onUnmounted(() => {
 
           <div class="text-center">
             <p class="text-xs uppercase tracking-[0.15em] text-primary font-mono font-semibold">Pro</p>
+            <p class="mt-2 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">14-day free trial · No credit card required</p>
             <div class="mt-4 flex items-baseline justify-center gap-1">
               <span class="text-5xl font-bold font-mono tracking-tight text-foreground">
                 {{ billingPeriod === 'annual' ? '$34.30' : '$49' }}

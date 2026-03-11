@@ -6,7 +6,6 @@ import Button from "@/components/ui/Button.vue";
 const mobileMenuOpen = ref(false);
 
 const APP_URL = "https://app.thesisforge.ai";
-const GITHUB_URL = "https://github.com/thesisforge";
 </script>
 
 <template>
@@ -41,11 +40,9 @@ const GITHUB_URL = "https://github.com/thesisforge";
 
         <!-- Desktop CTA buttons -->
         <div class="hidden items-center gap-3 md:flex">
-          <Button as="a" :href="GITHUB_URL" target="_blank" rel="noopener noreferrer" variant="outline" size="header" class="text-muted-foreground hover:text-foreground">
-            GitHub
-          </Button>
+          <span class="text-xs text-muted-foreground/70 mr-1">14-day free trial</span>
           <Button as="a" :href="`${APP_URL}/setup`" size="header">
-            Get Started
+            Start Free Trial
             <ArrowRight class="h-3.5 w-3.5" aria-hidden="true" />
           </Button>
         </div>
@@ -108,7 +105,8 @@ const GITHUB_URL = "https://github.com/thesisforge";
             :href="`${APP_URL}/setup`"
             class="rounded-md px-3 py-2 font-medium text-primary hover:bg-muted"
             @click="mobileMenuOpen = false"
-          >Get Started</a>
+          >Start Free Trial</a>
+          <p class="px-3 text-xs text-muted-foreground/70">14-day free trial · No CC required</p>
         </nav>
       </div>
       </Transition>
@@ -163,21 +161,6 @@ const GITHUB_URL = "https://github.com/thesisforge";
             </li>
             <li>
               <router-link to="/changelog" class="transition-colors hover:text-foreground">Changelog</router-link>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Open Source -->
-        <div>
-          <p class="font-medium">Open Source</p>
-          <ul class="mt-2 space-y-2 text-sm text-muted-foreground">
-            <li>
-              <a
-                :href="GITHUB_URL"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="transition-colors hover:text-foreground"
-              >GitHub</a>
             </li>
           </ul>
         </div>

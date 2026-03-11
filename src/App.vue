@@ -5,7 +5,7 @@ import Button from "@/components/ui/Button.vue";
 
 const mobileMenuOpen = ref(false);
 
-const APP_URL = "https://app.thesisforge.io";
+const APP_URL = "https://app.thesisforge.ai";
 const GITHUB_URL = "https://github.com/thesisforge";
 </script>
 
@@ -35,6 +35,7 @@ const GITHUB_URL = "https://github.com/thesisforge";
           <router-link to="/#features" class="hover:text-foreground transition-colors">Features</router-link>
           <router-link to="/#how-it-works" class="hover:text-foreground transition-colors">How It Works</router-link>
           <router-link to="/#integrations" class="hover:text-foreground transition-colors">Integrations</router-link>
+          <router-link to="/#pricing" class="hover:text-foreground transition-colors">Pricing</router-link>
           <router-link to="/docs" class="hover:text-foreground transition-colors">Docs</router-link>
         </nav>
 
@@ -93,6 +94,11 @@ const GITHUB_URL = "https://github.com/thesisforge";
             @click="mobileMenuOpen = false"
           >Integrations</router-link>
           <router-link
+            to="/#pricing"
+            class="rounded-md px-3 py-2 hover:bg-muted hover:text-foreground"
+            @click="mobileMenuOpen = false"
+          >Pricing</router-link>
+          <router-link
             to="/docs"
             class="rounded-md px-3 py-2 hover:bg-muted hover:text-foreground"
             @click="mobileMenuOpen = false"
@@ -141,6 +147,9 @@ const GITHUB_URL = "https://github.com/thesisforge";
             </li>
             <li>
               <router-link to="/#how-it-works" class="transition-colors hover:text-foreground">How It Works</router-link>
+            </li>
+            <li>
+              <router-link to="/#pricing" class="transition-colors hover:text-foreground">Pricing</router-link>
             </li>
           </ul>
         </div>

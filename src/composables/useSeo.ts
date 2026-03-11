@@ -9,7 +9,7 @@ interface SeoOptions {
 }
 
 const SITE_NAME = "ThesisForge";
-const BASE_URL = "https://thesisforge.io";
+const BASE_URL = "https://thesisforge.ai";
 const DEFAULT_IMAGE = `${BASE_URL}/og-image.png`;
 
 /**

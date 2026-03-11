@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import { useSeo } from "@/composables/useSeo";
 import {
   ArrowRight,
@@ -9,18 +9,19 @@ import {
   MessageSquareText,
   FileText,
   BarChart3,
+  Check,
 } from "lucide-vue-next";
 import Badge from "@/components/ui/Badge.vue";
 import Button from "@/components/ui/Button.vue";
 import Card from "@/components/ui/Card.vue";
 
-const APP_URL = "https://app.thesisforge.io";
+const APP_URL = "https://app.thesisforge.ai";
 
 useSeo({
   title: "Know What to Build Next",
   description:
     "Your customers are telling you what to build — in calls, tickets, and usage data. ThesisForge finds the patterns you're missing and turns them into specs.",
-  url: "https://thesisforge.io",
+  url: "https://thesisforge.ai",
 });
 
 /* ─── Data ─── */
@@ -135,6 +136,19 @@ const outcomes = [
   { headline: "Back every decision with evidence", body: "Walk into any prioritization meeting with cited customer quotes and revenue-weighted themes." },
   { headline: "Cut research time by 10x", body: "Stop combing through transcripts manually. Ask a question, get an evidence-cited answer in seconds." },
   { headline: "Hear every customer — not just the loudest", body: "Revenue-weighted themes surface what matters most, so quiet accounts with big pain don't slip through." },
+];
+
+const billingPeriod = ref<"monthly" | "annual">("annual");
+
+const pricingFeatures = [
+  "Unlimited signal ingestion",
+  "All integrations (Gong, Intercom, Slack, Linear, and more)",
+  "AI-powered theme clustering",
+  "Chat with your signal corpus",
+  "Evidence-grounded spec generation",
+  "Revenue-weighted prioritization",
+  "Unlimited workspaces",
+  "Export to Markdown, GitHub Issues, and AI prompts",
 ];
 
 /* ─── Scroll Reveal ─── */
@@ -401,6 +415,90 @@ onUnmounted(() => {
       </div>
     </section>
 
+    <!-- ═══════════════════ PRICING ═══════════════════ -->
+    <section id="pricing" aria-label="Pricing" class="container border-t border-border/50 py-20 md:py-28 reveal">
+      <div class="text-center">
+        <p class="text-xs uppercase tracking-[0.2em] text-muted-foreground font-mono">Pricing</p>
+        <h2 class="mt-3 text-3xl font-semibold md:text-5xl font-serif">
+          Simple, transparent pricing
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+          One plan. Everything included. Start with a free trial — no credit card required.
+        </p>
+
+        <!-- Period toggle -->
+        <div role="radiogroup" aria-label="Billing period" class="mt-8 inline-flex items-center gap-1 rounded-xl bg-muted/50 p-1 border border-border/50">
+          <button
+            role="radio"
+            :aria-checked="billingPeriod === 'monthly'"
+            :class="[
+              'px-4 py-2 text-sm font-medium rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+              billingPeriod === 'monthly'
+                ? 'bg-primary text-white shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            ]"
+            @click="billingPeriod = 'monthly'"
+          >
+            Monthly
+          </button>
+          <button
+            role="radio"
+            :aria-checked="billingPeriod === 'annual'"
+            :class="[
+              'px-4 py-2 text-sm font-medium rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+              billingPeriod === 'annual'
+                ? 'bg-primary text-white shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            ]"
+            @click="billingPeriod = 'annual'"
+          >
+            Annual
+            <span class="ml-1.5 text-xs opacity-80">Save 30%</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Pricing card -->
+      <div class="mx-auto mt-10 max-w-lg">
+        <Card class="relative overflow-hidden p-8 md:p-10">
+          <div class="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-primary/80 via-primary/40 to-transparent" />
+
+          <div class="text-center">
+            <p class="text-xs uppercase tracking-[0.15em] text-primary font-mono font-semibold">Pro</p>
+            <div class="mt-4 flex items-baseline justify-center gap-1">
+              <span class="text-5xl font-bold font-mono tracking-tight text-foreground">
+                {{ billingPeriod === 'annual' ? '$34.30' : '$49' }}
+              </span>
+              <span class="text-lg text-muted-foreground">/mo</span>
+            </div>
+            <p v-if="billingPeriod === 'annual'" class="mt-1.5 text-sm text-muted-foreground">
+              $411.60 billed annually
+            </p>
+            <p v-else class="mt-1.5 text-sm text-muted-foreground">
+              Billed monthly
+            </p>
+          </div>
+
+          <ul class="mt-8 space-y-3">
+            <li v-for="feature in pricingFeatures" :key="feature" class="flex items-start gap-3">
+              <Check class="h-4.5 w-4.5 mt-0.5 shrink-0 text-primary" aria-hidden="true" />
+              <span class="text-sm text-muted-foreground">{{ feature }}</span>
+            </li>
+          </ul>
+
+          <div class="mt-8">
+            <Button as="a" :href="`${APP_URL}/setup`" size="lg" class="w-full install-glow justify-center">
+              Start Free Trial
+              <ArrowRight class="h-4 w-4" aria-hidden="true" />
+            </Button>
+            <p class="mt-3 text-center text-xs text-muted-foreground/70">
+              14-day free trial · No credit card required
+            </p>
+          </div>
+        </Card>
+      </div>
+    </section>
+
     <!-- ═══════════════════ FINAL CTA ═══════════════════ -->
     <section aria-label="Get started" class="relative border-t border-border/50 py-24 text-center reveal overflow-hidden md:py-32">
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_600px_300px_at_50%_60%,rgba(212,112,42,0.06),transparent)]" aria-hidden="true" />
@@ -420,7 +518,7 @@ onUnmounted(() => {
           </Button>
         </div>
         <p class="mt-4 text-xs text-muted-foreground/70">
-          No credit card required · Free tier available
+          14-day free trial · No credit card required
         </p>
       </div>
     </section>

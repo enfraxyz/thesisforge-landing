@@ -4,13 +4,13 @@ import { ChevronRight, ArrowRight } from "lucide-vue-next";
 import Button from "@/components/ui/Button.vue";
 import { useSeo } from "@/composables/useSeo";
 
-const APP_URL = "https://app.thesisforge.io";
+const APP_URL = "https://app.thesisforge.ai";
 
 useSeo({
   title: "Documentation",
   description:
     "Learn how to connect your customer signals, discover themes, query your data with AI, and generate implementation-ready specs with ThesisForge.",
-  url: "https://thesisforge.io/docs",
+  url: "https://thesisforge.ai/docs",
 });
 
 /* ─── Sidebar Navigation ─── */

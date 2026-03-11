@@ -19,6 +19,16 @@ export const router = createRouter({
       name: "changelog",
       component: () => import("@/views/ChangelogView.vue"),
     },
+    {
+      path: "/privacy",
+      name: "privacy",
+      component: () => import("@/views/PrivacyView.vue"),
+    },
+    {
+      path: "/terms",
+      name: "terms",
+      component: () => import("@/views/TermsView.vue"),
+    },
   ],
   scrollBehavior(to, _from, savedPosition) {
     if (savedPosition) return savedPosition;

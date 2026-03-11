@@ -170,10 +170,10 @@ const APP_URL = "https://app.thesisforge.ai";
           <p class="font-medium">Legal</p>
           <ul class="mt-2 space-y-2 text-sm text-muted-foreground">
             <li>
-              <a :href="`${APP_URL}/terms`" class="transition-colors hover:text-foreground">Terms</a>
+              <router-link to="/terms" class="transition-colors hover:text-foreground">Terms</router-link>
             </li>
             <li>
-              <a :href="`${APP_URL}/privacy`" class="transition-colors hover:text-foreground">Privacy</a>
+              <router-link to="/privacy" class="transition-colors hover:text-foreground">Privacy</router-link>
             </li>
           </ul>
         </div>
